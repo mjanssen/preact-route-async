@@ -13,26 +13,38 @@ function _objectWithoutProperties(obj, keys) {
 class Route extends Component {
   constructor() {
     super();
-    this.state = { AsyncComponent: false };
+    this.state = { A: false };
+  }
+
+  componentDidMount() {
+    console.log('did mount', this.state);
+  }
+
+  componentDidUpdate() {
+    if (this.state.A === false && this.props.getComponent) {
+      this.f(this.props.getComponent);
+    }
+  }
+
+  f(getComponent) {
+    getComponent.then(C => this.setState({ A: C.default || C }));
   }
 
   componentWillMount() {
     const { getComponent } = this.props;
 
-    if (getComponent) {
-      getComponent.then(C => this.setState({ AsyncComponent: C.default || C }));
-    }
+    if (getComponent) this.f(getComponent);
   }
 
   render(props, state) {
     const { getComponent, Component } = props;
-    const { AsyncComponent } = state;
+    const { A } = state;
 
-    if (getComponent && AsyncComponent === false) return null;
+    if (getComponent && A === false) return null;
     const p = _objectWithoutProperties(props, ['getComponent', 'url', 'matches']);
 
     if (Component) return h(Component, p);
-    if (AsyncComponent) return h(AsyncComponent, p);
+    if (A) return h(A, p);
 
     return null;
   }
