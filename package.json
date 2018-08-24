@@ -1,0 +1,33 @@
+{
+  "name": "preact-route-async",
+  "version": "0.6.0",
+  "description": "",
+  "main": "./dist/preact-route-async.js",
+  "scripts": {
+    "build": "microbundle -o ./dist",
+    "local": "microbundle -o ./local --compress false",
+    "check": "microbundle -o ./dist --compress false",
+    "dev": "microbundle watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjanssen/preact-route-async.git"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "author": {
+    "name": "Marnix Janssen",
+    "email": "dev.marnix@gmail.com",
+    "url": "https://github.com/mjanssen"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.6.0"
+  },
+  "peerDependencies": {
+    "preact": "latest"
+  }
+}
