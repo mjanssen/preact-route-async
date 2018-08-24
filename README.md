@@ -5,6 +5,8 @@
 
 _Asynchronous_ loading for Preact Router. For _380B_.
 
+_Inspired by [preact-async-route](https://github.com/prateekbh/preact-async-route). Bundled with [📦 Microbundle](https://github.com/developit/microbundle)_
+
 # Install
 
 ```
