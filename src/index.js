@@ -16,10 +16,6 @@ class Route extends Component {
     this.state = { A: false };
   }
 
-  componentDidMount() {
-    console.log('did mount', this.state);
-  }
-
   componentDidUpdate() {
     if (this.state.A === false && this.props.getComponent) {
       this.f(this.props.getComponent);
