@@ -20,11 +20,11 @@ import Router from 'preact-router';
 import Route from 'preact-route-async';
 
 <Router>
-  <Route path="/" Component={Home} />
+  <Route path="/" component={Home} />
   <Route
     path="/user"
     user={user}
-    getComponent={import('./pages/user.js')}
+    getComponent={() => import('./pages/user.js')}
   />
 </Router>
 ```
