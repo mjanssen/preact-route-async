@@ -11,9 +11,11 @@ function _objectWithoutProperties(obj, keys) {
 }
 
 class Route extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = { A: false };
+    const { getComponent } = props;
+    if (getComponent) this.f(getComponent);
   }
 
   componentDidUpdate() {
@@ -23,23 +25,17 @@ class Route extends Component {
   }
 
   f(getComponent) {
-    getComponent.then(C => this.setState({ A: C.default || C }));
-  }
-
-  componentWillMount() {
-    const { getComponent } = this.props;
-
-    if (getComponent) this.f(getComponent);
+    getComponent().then(C => this.setState({ A: C.default || C }));
   }
 
   render(props, state) {
-    const { getComponent, Component } = props;
+    const { getComponent, component } = props;
     const { A } = state;
 
     if (getComponent && A === false) return null;
     const p = _objectWithoutProperties(props, ['getComponent', 'url', 'matches']);
 
-    if (Component) return h(Component, p);
+    if (component) return h(component, p);
     if (A) return h(A, p);
 
     return null;
