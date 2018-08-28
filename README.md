@@ -3,7 +3,7 @@
 [![npm](https://img.shields.io/npm/v/preact-route-async.svg)](http://npm.im/preact-route-async)
 [![gzip size](http://img.badgesize.io/https://unpkg.com/preact-route-async/dist/preact-route-async.js?compression=gzip)](https://unpkg.com/preact-route-async/dist/preact-route-async.js)
 
-**Asynchronous** loading for Preact Router. For _380B_.
+**Asynchronous** loading for Preact Router. For _440B_.
 
 Inspired by [preact-async-route](https://github.com/prateekbh/preact-async-route). Bundled with [📦 Microbundle](https://github.com/developit/microbundle)
 
